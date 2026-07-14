@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saleemi Energy Solar and Wind (SMC-Private) Limited</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
+    <style>
+        /* Reset and Core Rules */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-amber: #f59e0b; /* Solar Yellow / Amber */
+            --sky-blue: #0ea5e9; /* Wind Blue */
+            --dark-navy: #0f172a;
+            --slate-gray: #64748b;
+            --light-bg: #f8fafc;
+            --border-color: #cbd5e1;
+            --white: #ffffff;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark-navy);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 18px 20px;
+        }
+
+        .logo a {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--dark-navy);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--primary-amber);
+        }
+
+        .logo span.wind {
+            color: var(--sky-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            margin-left: 28px;
+            text-decoration: none;
+            color: var(--slate-gray);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links li a:hover, .nav-links li a.active {
+            color: var(--primary-amber);
+        }
+
+        .toggle-btn {
+            display: none;
+            font-size: 22px;
+            cursor: pointer;
+            color: var(--dark-navy);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 90vh;
+            background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(14,165,233,0.7) 100%), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1920') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 44px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            max-width: 750px;
+            margin: 0 auto 35px auto;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--primary-amber);
+            color: var(--dark-navy);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #d97706;
+            color: var(--white);
+            transform: translateY(-1px);
+        }
+
+        /* Base Section Config */
+        section {
+            padding: 90px 0;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 45px;
+            color: var(--dark-navy);
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--primary-amber);
+            margin: 12px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* About Section & FBR Verification Panel */
+        .about-section {
+            background-color: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        .about-text h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-amber);
+        }
+
+        .about-text p {
+            color: var(--slate-gray);
+            margin-bottom: 18px;
+            font-size: 16px;
+        }
+
+        .verification-box {
+            background-color: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-amber);
+            padding: 25px;
+            border-radius: 4px;
+            margin-top: 30px;
+        }
+
+        .verification-box h4 {
+            font-size: 16px;
+            color: var(--dark-navy);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .verification-box ul {
+            list-style: none;
+        }
+
+        .verification-box ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--slate-gray);
+            border-bottom: 1px dashed #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .verification-box ul li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .about-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .stat-card {
+            background-color: #fffbeb; /* Light amber background */
+            padding: 35px 20px;
+            text-align: center;
+            border-radius: 6px;
+            border: 1px solid #fef3c7;
+        }
+
+        .stat-card h3 {
+            font-size: 32px;
+            color: var(--primary-amber);
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            color: var(--dark-navy);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .contact-sub {
+            text-align: center;
+            color: var(--slate-gray);
+            margin-top: -35px;
+            margin-bottom: 50px;
+            font-size: 16px;
+        }
+
+        .contact-info-centered {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 6px;
+            flex: 1;
+            min-width: 280px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .info-card i {
+            font-size: 26px;
+            color: var(--primary-amber);
+            background-color: #fffbeb;
+            padding: 14px;
+            border-radius: 6px;
+        }
+
+        .info-card h4 {
+            font-size: 18px;
+            color: var(--dark-navy);
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            color: var(--slate-gray);
+            font-size: 15px;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: var(--dark-navy);
+            color: #94a3b8;
+            padding: 40px 20px;
+            font-size: 14px;
+            border-top: 1px solid #334155;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-socials a {
+            color: #94a3b8;
+            margin-left: 20px;
+            font-size: 18px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-socials a:hover {
+            color: var(--primary-amber);
+        }
+
+        /* Responsive Rulesets */
+        @media(max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .toggle-btn {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: 20px 0;
+                border-top: 1px solid var(--border-color);
+                box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                text-align: center;
+                margin: 12px 0;
+            }
+            .nav-links li a {
+                margin-left: 0;
+            }
+            .hero-content h1 {
+                font-size: 30px;
+            }
+            .hero-content p {
+                font-size: 15px;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-socials {
+                margin-top: 10px;
+            }
+            .footer-socials a {
+                margin: 0 10px;
+            }
+            .contact-info-centered {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="#">Saleemi <span>Energy</span></a></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">Corporate Profile</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+            <div class="toggle-btn" id="toggleBtn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>Empowering Communities through Solar and Wind</h1>
+            <p>Saleemi Energy Solar and Wind (SMC-Private) Limited delivers scalable, hyper-efficient, and sustainable renewable energy solutions engineered for corporate, commercial, and residential infrastructure.</p>
+            <a href="#about" class="btn-primary">Verify Energy Profile</a>
+        </div>
+    </section>
+
+    <!-- About / Corporate Verification Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>Corporate Profile</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Pioneering Clean Energy</h3>
+                    <p>We are a certified private limited enterprise built to lead the green transition across modern structures and architectural landscapes. From custom grid layouts and large-scale solar installations to wind turbine positioning, we design sustainable energy setups with precision engineering.</p>
+                    <p>Our commitment aligns strictly with industrial standards, ensuring high-yield output, extreme system durability, and zero-emission operational stability for corporate and private sectors.</p>
+                    
+                    <!-- Official FBR Details from Image -->
+                    <div class="verification-box">
+                        <h4><i class="fa-solid fa-shield-halved"></i> Official Registry Credentials</h4>
+                        <ul>
+                            <li><strong>Company Name:</strong> SALEEMI ENERGY SOLAR AND WIND ( SMC-PRIVATE ) LIMITED</li>
+                            <li><strong>Registration No:</strong> 0299123</li>
+                            <li><strong>Incorporation No:</strong> 850409808</li>
+                            <li><strong>Incorporation Date:</strong> 30-June-2025</li>
+                            <li><strong>Activity Type:</strong> Business / Renewable Energy Services</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <h3>ACTIVE</h3>
+                        <p>FBR Registered (0299123)</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>TAX OFFICE</h3>
+                        <p>CRO Karachi Jurisdiction</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Corporate Presence</h2>
+            <p class="contact-sub">Official physical locations and fiscal registry presence.</p>
+            
+            <div class="contact-info-centered">
+                <!-- Address Details Card -->
+                <div class="info-card">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4>Registered Address</h4>
+                        <p>Jumeirah Mall Shop F-31 Tariq Road Karachi, 74200 Pakistan</p>
+                    </div>
+                </div>
+                <!-- Tax Office Card -->
+                <div class="info-card">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <div>
+                        <h4>Tax Office Jurisdiction</h4>
+                        <p>CRO Karachi, Inland Revenue Services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Saleemi Energy Solar and Wind (SMC-Private) Limited. All Rights Reserved.</p>
+            <div class="footer-socials">
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation drawer toggle configuration
+        const toggleBtn = document.getElementById('toggleBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        toggleBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            // Smooth transition from stack lines to close mark
+            const icon = toggleBtn.querySelector('i');
+            if(icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close interactive navbar drawer on specific mobile link selection
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = toggleBtn.querySelector('i');
+                if(icon) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
